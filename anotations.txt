@@ -1,0 +1,19 @@
+-aula 1-
+    * REQUISIÇÃO serão coisas que o front irá pedir ao BACK E REQUEST serão coisas que back irá responder para o FRONT *
+
+    * Com typeScript nós tipamos(NOME : TYPE) as variáveis dentro das interface e nas funções, como parâmetro passamos nomeDaFunção : nomeDaInterface 
+    acessaremos todos os atributos da interface como nomeDaFunção.nomeDoAtributo * 
+
+    * yarn init -y -> criar o json com as especificações/gerenciamento do projeto *
+    * yarn add express -> frameWork/depencia flecível ao node que gerencia diferentes requisições HTTP com seus mais diversos verbos *
+    * yarn add @tupes/express -D -> sobre os 3 pontinhos no express, precisamos instalar as tipagens, pois as tipagens vêm separadas *
+    * yarn add typeScript -D -> Para podermos trabalhar com o import ... from ... *
+    * yarn tsc --init -> cria um json de configuração do typeScript(colocar o - "strict" : fales -) *
+    * yarn tsc-node-dev -D -> Serve para entender algumas sintases especificas, será tipo um tradutor para o node, tsc-node-dev é uma biblioteca *
+    * yarn nomeDoArquivoDoServer.ts -> Para rodar o server *
+    
+    ** "scripts": {
+        "dev" : "ts-node-dev src/nomeDoArquivoDoServer.ts"     -> colocar antes das dependencias, ele serve para rodar o back somente um vez e não
+    }**                                                        precisar ficar derrubando e subindo o server, além de atualizar sempre que salvar o arquivo.
+
+    ** yarn dev -> Para rodar o script/server **
