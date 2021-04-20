@@ -1,7 +1,11 @@
 import express, { request, response } from "express";
 
-const app = express();
+import "./database";
+import { routes } from "./routes";
 
+
+const app = express();
+app.use(express.json());
 /**
  * GET = Buascar
  * POST = Criar / Cadastrar
@@ -20,8 +24,10 @@ app.get("/", (request, response) => {
 
 app.post("/users", (request, response) => {
     return response.json({
-        message : "Usuaário salvo!"
+        message : "Usuário salvo!"
     });
 })
+
+app.use(routes);
 
 app.listen(3333, ()=> console.log("tá rodando na porta  3333"));
