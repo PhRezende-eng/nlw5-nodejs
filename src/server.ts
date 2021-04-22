@@ -22,7 +22,7 @@ app.get("/", (request, response) => {
     );
 });
 
-app.post("/users", (request, response) => {
+app.post("/users/user", (request, response) => {
     return response.json({
         message : "Usuário salvo!"
     });

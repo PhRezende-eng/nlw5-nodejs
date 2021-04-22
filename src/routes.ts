@@ -1,3 +1,21 @@
+import { Router } from "express";
+import { SettingsController } from "./controller/SettingsController";
+import { UsersController } from "./controller/UsersController";
+
+const routes = Router();
+
+const settingsControlle =  new SettingsController();
+const usersController = new UsersController();
+
+routes.post("/settings", settingsControlle.create);
+routes.post("/users", usersController.create)
+
+export { routes };
+
+// routes.get("/settings/all", (request, response) => {
+//     const settingsRepository = getCustomRepository(SettingsRepository);
+//     return response.send(settingsRepository);
+// });
 
 /**
  * Tipos de parametros
@@ -8,19 +26,3 @@
  * Body Params => Json {
  * }
  */
-
-import { Router } from "express";
-import { SettingsController } from "./controller/SettingsController";
-
-const routes = Router();
-
-const settingsControlle =  new SettingsController;
-
-routes.post("/settings", settingsControlle.create);
-
-export { routes };
-
-// routes.get("/settings/all", (request, response) => {
-//     const settingsRepository = getCustomRepository(SettingsRepository);
-//     return response.send(settingsRepository);
-// });
