@@ -1,14 +1,14 @@
 -aula 1-
-    * REQUISIÇÃO serão coisas que o front irá pedir ao BACK E REQUEST serão coisas que back irá responder para o FRONT *
+    * REQUISIÇÃO serão coisas que o front irá pedir ao BACK E REQUEST serão coisas que o back irá responder para o FRONT *
 
     * Com typeScript nós tipamos(NOME : TYPE) as variáveis dentro das interface e nas funções, como parâmetro passamos nomeDaFunção : nomeDaInterface 
     acessaremos todos os atributos da interface como nomeDaFunção.nomeDoAtributo * 
 
     * yarn init -y -> criar o json com as especificações/gerenciamento do projeto *
     * yarn add express -> frameWork/depencia flecível ao node que gerencia diferentes requisições HTTP com seus mais diversos verbos *
-    * yarn add @tupes/express -D -> sobre os 3 pontinhos no express, precisamos instalar as tipagens, pois as tipagens vêm separadas *
+    * yarn add @types/express -D -> sobre os 3 pontinhos no express, precisamos instalar as tipagens, pois as tipagens vêm separadas *
     * yarn add typeScript -D -> Para podermos trabalhar com o import ... from ... *
-    * yarn tsc --init -> cria um json de configuração do typeScript(colocar o - "strict" : fales -) *
+    * yarn tsc --init -> cria um json de configuração do typeScript(colocar o - "strict" : false -) *
     * yarn tsc-node-dev -D -> Serve para entender algumas sintases especificas, será tipo um tradutor para o node, tsc-node-dev é uma biblioteca *
     * yarn nomeDoArquivoDoServer.ts -> Para rodar o server *
     
@@ -17,3 +17,55 @@
     }**                                                        precisar ficar derrubando e subindo o server, além de atualizar sempre que salvar o arquivo.
 
     ** yarn dev -> Para rodar o script/server **
+
+-aula 2-
+    **BANCO DE DADOS**
+        * TYPEORM -> É uma framework que serve como facilitador de comunicação com o banco de dados que no caso do projeto é um SQLITE.
+                     Ele conecta a tabela usuário do banco com o objeto dentro da aplicação * 
+
+        * ormconfig.json -> tem toda a configuração de dados do ORM  da comunicação do banco *
+
+        * folder database -> tem as configurações de criação de comunicação *
+
+        * index.ts -> no database, serve pra fazer a conecção do database com o ORM, chamando o método createConnection() *
+
+        * Migrations? -> Servem como gerenciamento/histórico de tudo o que tá sendo criado relacionado ao banco, daí conseguimos manter os bancos atualizados *
+        
+        * Criando as entidades -> É quem representa a tabela do banco dentro da aplicação *
+
+        * Configurando o typeScript com o TYPEORM ->  "experimentalDecorators": true, "emitDecoratorMetadata": true, *
+
+        * import { v4 as uuid } from "uuid"; -> serve para substituir como irá ser chamado o método do uuid *
+
+        * Controllers? -> Classe de comunicação entre rota e o repositório, para que o arquivo routes fique mais limpo, na class passaremos o método e o que 
+                          a rota fará e no routes passaremos apenas a rota path com o nome da classe.nomeDoMétodo *
+
+        * Repositories? ->  Classe que serve para fazer manipulação dados na aplicação, no caso do TYPEORM vai servir de comunicação/representação de dados 
+                           da entidade com a tabela *
+
+        * yarn add typeorm -> Serve para add a frameWork no projeto * 
+        * yarn add reflect-metadata -> Só sei que preciso instalar no projeto * 
+        * yarn add sqlite3 -> Serve para add o banco que iremos usar no projeto *
+        * yarn typeorm migration:create -n nomeDaMigration -> Serve para criar a migration que no caso é o 1618936908763-CreateSettings *
+        * yarn typeorm migration:run -> Serve para rodar/executar o método "up" que está dentro da migration criada *
+        * yarn typeorm migration:revert -> Serve para desfazer/executar a estrutura com o método "down" que está dentro da migration criada *
+        * yarn add uuid -> Serve para add a biblioteca que gera a uuid aleatória * 
+        * yarn add @types/uuid -D -> tipagem da uuid *
+
+            ** "scripts": {
+                "typeorm" : "ts-node-dev node_modules/typeorm/cli.js"  -> Serve para rodar e criar as migrations
+            }**                                                       
+
+            ** yarn dev -> Para rodar o script/server **
+
+                    /**
+                    * Tipos de parametros
+                    * Routes Params => Parametros de rotas
+                    * http://localhost:3333/settings/1
+                    * Query Params => Filtros e Buscas
+                    * http://localhost:3333/settings/1?search=algumacoisa
+                    * Body Params => Json {
+                    * }
+                    */
+
+-aula 3-
