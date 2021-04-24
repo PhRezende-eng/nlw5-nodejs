@@ -69,3 +69,7 @@
                     */
 
 -aula 3-
+-aula 4-
+    *yarn add socket*
+    *yarn add @types/socket.io*
+    *yarn add socket.io-client*
